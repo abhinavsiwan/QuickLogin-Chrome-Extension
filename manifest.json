@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    
+    "name": "Qucik Login",
+    "description": "Login into multiple accounts with one click",
+    "version": "1",
+    
+    "browser_action": {
+    "default_icon": "Google-Chrome-icon.png",
+	"default_title": "QuickLogin",
+	"default_popup": "popup.html"
+    },
+    "icons": {
+        "64": "Google-Chrome-icon.png",
+        "32": "Google-Chrome-icon.png",
+        "16": "Google-Chrome-icon.png"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*","https://*/*"],
+            "js": ["jquery.js","myScript.js"]
+        }
+    ],
+    "permissions": [
+        "notifications",
+        "https://*.facebook.com/*","http://*.facebook.com/*",
+        "tabs",
+        "activeTab",
+        "storage",
+        "background",
+        "management"
+    ]
+}
