@@ -18,11 +18,11 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
             chrome.tabs.update({url: "http://www.facebook.com"});
         } else if(message.web.toLowerCase() === 'itcalumni') {
             chrome.tabs.update({url: "http://www.itcinfotech.com/ITC-Infotech-Alumini.aspx"});
-        } else if (message.web.toLowerCase() === 'itcvpn') {
+        } else if (message.web.toLowerCase() === 'vpn' || message.web.toLowerCase() === 'onepoint') {
             chrome.tabs.update({url: "https://vpn.itcinfotech.com/dana-na/auth/url_default/welcome.cgi"});
         } else if(message.web.toLowerCase() === 'amazon') {
             chrome.tabs.update({url: "https://www.amazon.com/ap/signin?_encoding=UTF8&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2F%3Fref_%3Dnav_signin"});
-        } else if(message.web.toLowerCase() === 'itcoutlook') {
+        } else if(message.web.toLowerCase() === 'outlook') {
             chrome.tabs.update({url: "https://i3ljoin.itcinfotech.com/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fi3ljoin.itcinfotech.com%2fowa%2f%23authRedirect%3dtrue"});
         }
         window.close();

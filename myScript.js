@@ -27,7 +27,7 @@ function itcAlumniPage(email, pass) {
 }
 
 function itcOutlook(email, pass) {
-    debugger;
+    //debugger;
     document.getElementById('username').value = email;   //Name
     document.getElementById('password').value = pass;   //EmailId
     
@@ -52,9 +52,11 @@ function itcVPN(email, pass) {
 }
 
 function itcOnePoint(email, pass) {
-    alert(email + " " + pass);
-    document.getElementById('userid').value = "23213"; 
-    document.getElementById('pwd').value = "@#mummy14242608";
+    //alert(email + " " + pass);
+    //debugger;
+    var userid = email.substring(12);;
+    document.getElementById('userid').value = userid; 
+    document.getElementById('pwd').value = pass;
 
     //click on submit
     document.forms[0].submit();  
@@ -62,6 +64,7 @@ function itcOnePoint(email, pass) {
 $(document).ready(function(){
     var email;
     var pass;
+    var web;
     
     var urlVPN = "https://vpn.itcinfotech.com/dana/home/index.cgi";
     var urlOnePoint = "https://vpn.itcinfotech.com/psp/OPPORTAL/,DanaInfo=i3lerpweb4.itcinfotech.com,Port=8000,SSO=U+?cmd=login&languageCd=ENG&";
@@ -74,10 +77,15 @@ $(document).ready(function(){
     
     var urlVPNLogOut = "https://vpn.itcinfotech.com/dana-na/auth/url_default/welcome.cgi?p=logout&c=1&u=useruidce9624ce960c4a309398d1694c6416d71240d482&signinUrl=gDhXVwMvBwABAAAAdpbwvGcxJDmmRSUC9Fek3ELwK6S1KylnmQw1kEs54KLiRokFbpKnFr4HcJDIpIJOrnN9qFPyYRJb-yIusKB6Eg%3D%3D";
     
-    debugger;
+    var urlTimeSheet = "https://vpn.itcinfotech.com/psp/OPPORTAL/EMPLOYEE/EMPL/h/,DanaInfo=i3lerpweb4.itcinfotech.com,Port=8000+?tab=DEFAULT";
+    
+    https://vpn.itcinfotech.com/psp/OPPORTAL/EMPLOYEE/EMPL/h/,DanaInfo=i3lerpweb4.itcinfotech.com,Port=8000+?tab=DEFAULT
+    
+    //debugger;
     chrome.storage.sync.get("key", function (obj) {
         email = obj.key.email;
         pass = obj.key.pass;
+        web = obj.key.web;
         //alert("saved message : " + JSON.stringify(obj));
         //alert("saved message : " + obj.key.email.toLowerCase() + obj.key.pass.toLowerCase() + obj.key.web.toLowerCase());
         
@@ -98,16 +106,16 @@ $(document).ready(function(){
                 return;
             }
             amazon(obj.key.email, obj.key.pass);
-        } else if (obj.key.web.toLowerCase() === 'itcvpn') {
+        } else if (obj.key.web.toLowerCase() === 'vpn') {
             //to prevent logging in again and again after logout
             if(location.href == urlVPNLogOut) {
                 console.log("VPN Log out url visited");
                 return;
             }
             itcVPN(obj.key.email, obj.key.pass);
-        } else if (obj.key.web.toLowerCase() === 'itcoutlook') {
+        } else if (obj.key.web.toLowerCase() === 'outlook') {
             //to prevent logging in again and again after logout
-            if(location.href == urlOutlookLogOut) {
+            if(location.href === urlOutlookLogOut) {
                 console.log("Outlook Log out url visited");
                 return;
             }
@@ -115,13 +123,26 @@ $(document).ready(function(){
         }
     });
     
+    //debugger;
     if (location.href == urlVPN){
+        //alert("VPN url visited");
         console.log("VPN url visited");
         //click on one Point link
         $('a').get(18).click();
       } else if(location.href == urlOnePoint) {
+        setTimeout(function () {
+            console.log("1 second passed");
+            itcOnePoint(email, pass);
+        },1000);
+        //alert("One Point url visited");
         console.log("One Point url visited");
-        itcOnePoint(email, pass);
+        //itcOnePoint(email, pass);
+      } else if(location.href == urlTimeSheet) {
+        setTimeout(function () {
+            console.log("3 seconds passed");
+            $('img').get(42).click();
+        },4000);
+        console.log("Time sheet url visited");
       } else {
           console.log("Not visited");
       }
