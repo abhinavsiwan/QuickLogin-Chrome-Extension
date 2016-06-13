@@ -2,7 +2,7 @@
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
         //alert("Popup message received :"+ message.email + " " + message.pass + " " + message.web);
      
-        //save the data in local storage/persistent storage
+        //save the data in persistent storage
         chrome.storage.sync.set({"key": {'email': message.email, 'pass': message.pass, 'web': message.web}}, function () {
              if (chrome.runtime.error) {
                 //alert("Runtime error.");
@@ -16,8 +16,6 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
         //then update the page to the required URL
         if(message.web.toLowerCase() === 'facebook') {
             chrome.tabs.update({url: "http://www.facebook.com"});
-        } else if(message.web.toLowerCase() === 'itcalumni') {
-            chrome.tabs.update({url: "http://www.itcinfotech.com/ITC-Infotech-Alumini.aspx"});
         } else if (message.web.toLowerCase() === 'vpn' || message.web.toLowerCase() === 'onepoint') {
             chrome.tabs.update({url: "https://vpn.itcinfotech.com/dana-na/auth/url_default/welcome.cgi"});
         } else if(message.web.toLowerCase() === 'amazon') {

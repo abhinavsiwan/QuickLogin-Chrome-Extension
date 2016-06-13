@@ -1,16 +1,29 @@
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
         <script src="jquery.js"></script>
         <script src="popup.js"></script>
     </head>
     
     <body>
-        <lable for="email">Email/Username:</lable><input type="text" name="email" id="email" value="itcinfotech/23213"/>
+        <label for="website">website:</label>
+        <select name="website" id="websiteID" type=website"">
+            <option value="null">Select your website...</option>
+            <option value="vpn">VPN/OnePoint</option>
+            <option value="outlook">Outlook</option>
+            <option value="facebook">Facebook</option>
+            <option value="amazon">Amazon</option>
+        </select>
         <br/><br/>
-        <lable for="password">Pass:</lable><input type="password" name="pass" id="pass" value="@#mummy14242608"/>
-        <br/><br/>
-         <lable for="website">website Name:</lable><input type="text" name="website" id="website" value="vpn"/>
-        <br/><br/>
-        <button id='click-me'>Click Me!</button>
+  <!--      <lable for="website">website:</lable><input type="text" name="website" id="website" value="vpn"/>
+        <br/><br/>  -->
+        <label for="email">Email:</label><input type="text" name="email" id="email" value="itcinfotech/22124" size="15"/>
+        <p id="errorEmail" style="color:red;font-size:8px;font-weight:bold;text-shadow:none;visibility:hidden">Please enter the email</p>
+        <label for="password">Pass:</label><input type="password" name="pass" id="pass" value="login@123" size="15"/>
+        <p id="errorPassword" style="color:red;font-size:8px;font-weight:bold;text-shadow:none;visibility:hidden">Please enter the password</p>
+        <br/>
+        <center>
+            <button id='click-me'>Submit</button>
+        </center>
     </body>
 </html>

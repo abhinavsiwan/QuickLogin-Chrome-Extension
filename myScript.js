@@ -68,7 +68,9 @@ $(document).ready(function(){
     
     var urlVPN = "https://vpn.itcinfotech.com/dana/home/index.cgi";
     var urlOnePoint = "https://vpn.itcinfotech.com/psp/OPPORTAL/,DanaInfo=i3lerpweb4.itcinfotech.com,Port=8000,SSO=U+?cmd=login&languageCd=ENG&";
-    
+
+//---------------------------------------------------------------------------------------------------------------------------------------
+    //These URLs to take care of log Out functionalities
     var urlAmazonLogOut = "https://www.amazon.com/ap/signin?_encoding=UTF8&openid.assoc_handle=usflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fyourstore%2Fhome%3Fie%3DUTF8%26action%3Dsign-out%26path%3D%252Fgp%252Fyourstore%252Fhome%26ref_%3Dnav_youraccount_signout%26signIn%3D1%26useRedirectOnSuccess%3D1";
     
     var urlFacebookLogOut = "https://www.facebook.com/?stype=";
@@ -76,10 +78,9 @@ $(document).ready(function(){
     var urlOutlookLogOut = "https://i3ljoin.itcinfotech.com/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fi3ljoin.itcinfotech.com%2fowa";
     
     var urlVPNLogOut = "https://vpn.itcinfotech.com/dana-na/auth/url_default/welcome.cgi?p=logout&c=1&u=useruidce9624ce960c4a309398d1694c6416d71240d482&signinUrl=gDhXVwMvBwABAAAAdpbwvGcxJDmmRSUC9Fek3ELwK6S1KylnmQw1kEs54KLiRokFbpKnFr4HcJDIpIJOrnN9qFPyYRJb-yIusKB6Eg%3D%3D";
+//---------------------------------------------------------------------------------------------------------------------------------------
     
     var urlTimeSheet = "https://vpn.itcinfotech.com/psp/OPPORTAL/EMPLOYEE/EMPL/h/,DanaInfo=i3lerpweb4.itcinfotech.com,Port=8000+?tab=DEFAULT";
-    
-    https://vpn.itcinfotech.com/psp/OPPORTAL/EMPLOYEE/EMPL/h/,DanaInfo=i3lerpweb4.itcinfotech.com,Port=8000+?tab=DEFAULT
     
     //debugger;
     chrome.storage.sync.get("key", function (obj) {
@@ -89,7 +90,6 @@ $(document).ready(function(){
         //alert("saved message : " + JSON.stringify(obj));
         //alert("saved message : " + obj.key.email.toLowerCase() + obj.key.pass.toLowerCase() + obj.key.web.toLowerCase());
         
-        //itcAlumniPage(obj.key.email, obj.key.pass);
         if(obj.key.web.toLowerCase() === 'facebook') {
                 //to prevent logging in again and again after logout
              if(location.href.includes(urlFacebookLogOut)) {
@@ -97,8 +97,6 @@ $(document).ready(function(){
                 return;
             }
             facebook(obj.key.email, obj.key.pass);
-        } else if(obj.key.web.toLowerCase() === 'itcalumni') {
-            itcAlumniPage(obj.key.email, obj.key.pass);
         } else if(obj.key.web.toLowerCase() === 'amazon') {
             //to prevent logging in again and again after logout
             if(location.href == urlAmazonLogOut) {
@@ -106,7 +104,7 @@ $(document).ready(function(){
                 return;
             }
             amazon(obj.key.email, obj.key.pass);
-        } else if (obj.key.web.toLowerCase() === 'vpn') {
+        } else if (obj.key.web.toLowerCase() === 'vpn' || obj.key.web.toLowerCase() === 'onepoint') {
             //to prevent logging in again and again after logout
             if(location.href == urlVPNLogOut) {
                 console.log("VPN Log out url visited");

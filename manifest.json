@@ -6,14 +6,14 @@
     "version": "1",
     
     "browser_action": {
-    "default_icon": "Google-Chrome-icon.png",
+    "default_icon": "itc1.png",
 	"default_title": "QuickLogin",
 	"default_popup": "popup.html"
     },
     "icons": {
-        "64": "Google-Chrome-icon.png",
-        "32": "Google-Chrome-icon.png",
-        "16": "Google-Chrome-icon.png"
+        "64": "itc1.png",
+        "32": "itc1.png",
+        "16": "itc1.png"
     },
     "background": {
         "scripts": ["background.js"],
