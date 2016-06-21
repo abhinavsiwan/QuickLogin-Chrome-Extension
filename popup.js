@@ -48,7 +48,7 @@ function sendClicks() {
     }
 }
 
-$(document).ready(function(){
+$(document).ready(function(){    
     console.log("popup.js > extension ready");
     $("#click-me").click(function() {
         sendClicks();

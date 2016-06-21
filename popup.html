@@ -6,22 +6,42 @@
     </head>
     
     <body>
-        <label for="website">website:</label>
-        <select name="website" id="websiteID" type=website"">
-            <option value="null">Select your website...</option>
-            <option value="vpn">VPN/OnePoint</option>
-            <option value="outlook">Outlook</option>
-            <option value="facebook">Facebook</option>
-            <option value="amazon">Amazon</option>
-        </select>
-        <br/><br/>
-  <!--      <lable for="website">website:</lable><input type="text" name="website" id="website" value="vpn"/>
-        <br/><br/>  -->
-        <label for="email">Email:</label><input type="text" name="email" id="email" value="itcinfotech/22124" size="15"/>
-        <p id="errorEmail" style="color:red;font-size:8px;font-weight:bold;text-shadow:none;visibility:hidden">Please enter the email</p>
-        <label for="password">Pass:</label><input type="password" name="pass" id="pass" value="login@123" size="15"/>
-        <p id="errorPassword" style="color:red;font-size:8px;font-weight:bold;text-shadow:none;visibility:hidden">Please enter the password</p>
-        <br/>
+         <form name="formExt" id="formExtID">
+            <table>
+                <tr>
+                    <td>website:</td>
+                    <td>
+                        <select name="website" id="websiteID" type=website"">
+                            <option value="null">Select your website...</option>
+                            <option value="vpn">VPN/OnePoint</option>
+                            <option value="outlook">Outlook</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="amazon">Amazon</option>
+                            <option value="github">GitHub</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" name="email" id="email" placeholder="Enter email/username"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p id="errorEmail" style="color:red;font-size:8px;font-weight:bold;text-shadow:none;visibility:hidden">Please enter the email</p></td>
+                </tr>
+                
+                <tr>
+                    <td>Pass:</td>
+                    <td><input type="password" name="pass" id="pass" placeholder="Enter password"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p id="errorPassword" style="color:red;font-size:8px;font-weight:bold;text-shadow:none;visibility:hidden">Please enter the password</p></td>
+                </tr>
+            </table>
+        </form>
         <center>
             <button id='click-me'>Submit</button>
         </center>

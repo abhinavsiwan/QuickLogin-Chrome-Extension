@@ -16,8 +16,8 @@
         "16": "itc1.png"
     },
     "background": {
-        "scripts": ["background.js"],
-        "persistent": true
+        "scripts": ["background.js"]
+        //"persistent": true
     },
     "content_scripts": [
         {
